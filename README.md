@@ -28,8 +28,8 @@ In this project, you will be building a backend application for a bookstore. The
 
  ```
  datasource db {
-  provider = "sqlite"
-  url      = "file:./bookstore.db"
+provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
  ```
 
@@ -37,8 +37,8 @@ You will need to go ahead and create your models.
 
 Make sure your models and fields follow this instruction:
 
-1. bookstore - fields: id, name, location, created, updated
-2. author - fields: id, name, created, updated.
+1. bookstores - fields: id, name, location, created, updated
+2. author - fields: id, name,email,password, created, updated.
 3. book - fields: id, bookId, bookstoreId, title, price, image, created, updated.
 
 Relations: `Author to Book is one to many`, meaning one author can have many books but each book has one author. Also `Bookstore to book is one to many`, meaning each Bookstore has many books but each book belongs to one store.
