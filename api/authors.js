@@ -24,7 +24,7 @@ router.post("/signup", async (req,res) => {
 
     if(existingAuthor){
 
-      return res.status(400).json({message: "User already exists"
+      return res.status(400).json({message: "Author already exists"
     
     });
 
@@ -44,7 +44,11 @@ router.post("/signup", async (req,res) => {
   });
 
   return res.status(200).json({
+<<<<<<< HEAD
     message : "Owner Created SuccessFully",
+=======
+    message : "Author Created SuccessFully",
+>>>>>>> c68874b91dd9e87dbc8e1d44bdd3b6f3667b0f3b
     author : newAuthor,
   });
 
@@ -53,7 +57,7 @@ router.post("/signup", async (req,res) => {
 
     
   }catch(error){
-    res.status(500).json({message : "something wrong fix it please",
+    res.status(500).json({message : "Something Went Wrong ",
   error : error.message
 });
 
@@ -74,8 +78,8 @@ router.post("/login", async(req,res) =>{
     });
 
     if(!existingAuthor){
-      res.status(400).json({
-        message : "User does not exist",
+      res.status(404).json({
+        message : "Author Does not exist",
       });
     }
 
@@ -84,8 +88,8 @@ router.post("/login", async(req,res) =>{
     const ispasswordCorrect = await bcrypt.compare(password,existingAuthor.password)
 
     if(!ispasswordCorrect){
-      res.status(400).json({
-        message  : "Invalid Credentials"
+      res.status(401).json({
+        message  : "Incorrect Password"
       });
     }
 
@@ -100,13 +104,13 @@ router.post("/login", async(req,res) =>{
     )
 
     return res.status(200).json({
-      message : "Login Successfull",
+      message : "logged in successfully",
       token : token,
     })
     
   }catch(error){
     res.status(500).json({
-      message : "something went wrong",
+      message : "Something Went Wrong",
       error : error.message,
     })
 
