@@ -8,9 +8,6 @@ const SECRET_KEY = process.env.SECRET_KEY;
 
 // sign up 
 
-
-
-
 router.post("/signup", async (req,res) => {
 
   const {name,email,password} = req.body;
@@ -46,7 +43,7 @@ router.post("/signup", async (req,res) => {
     },
   });
 
-  return res.status(400).json({
+  return res.status(200).json({
     message : "Owner Created SuccessFully",
     author : newAuthor,
   });
