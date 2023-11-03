@@ -44,11 +44,7 @@ router.post("/signup", async (req,res) => {
   });
 
   return res.status(200).json({
-<<<<<<< HEAD
-    message : "Owner Created SuccessFully",
-=======
     message : "Author Created SuccessFully",
->>>>>>> c68874b91dd9e87dbc8e1d44bdd3b6f3667b0f3b
     author : newAuthor,
   });
 
